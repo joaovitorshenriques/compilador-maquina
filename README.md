@@ -39,8 +39,7 @@ O compilador grava os arquivos `.ir` e `.asm` ao lado do código-fonte. Abra `ex
 | --- | ---: |
 | [Expressão aritmética](exemplos/expressao_aritmetica.txt) | 15 |
 | [Maior de três números](exemplos/maior_de_tres.txt) | 12 |
-| [Fatorial iterativo](exemplos/fatorial_iterativo.txt) | 120 |
-| [Fatorial recursivo, problema extra](exemplos/fatorial_recursivo.txt) | 120 |
+
 
 ### Fatoriais de 0 a 5
 
