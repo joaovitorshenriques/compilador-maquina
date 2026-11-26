@@ -40,9 +40,9 @@ NUMERO_MALFORMADO   {DIGITO}+[A-Za-z_][A-Za-z0-9_]*
 "else"              { return ELSE; }
 "while"             { return WHILE; }
 "return"            { return RETURN; }
-"true"              { return LITERAL_BOOL; }
-"false"             { return LITERAL_BOOL; }
-"principal"         { return PRINCIPAL; }
+"true"              { yylval.texto = copiar_lexema(yytext); return LITERAL_BOOL; }
+"false"             { yylval.texto = copiar_lexema(yytext); return LITERAL_BOOL; }
+"principal"         { yylval.texto = copiar_lexema(yytext); return PRINCIPAL; }
 
 "=="                { return IGUAL; }
 "!="                { return DIFERENTE; }
@@ -51,15 +51,15 @@ NUMERO_MALFORMADO   {DIGITO}+[A-Za-z_][A-Za-z0-9_]*
 "&&"                { return E_LOGICO; }
 "||"                { return OU_LOGICO; }
 
-{REAL}               { return NUM_REAL; }
+{REAL}               { yylval.texto = copiar_lexema(yytext); return NUM_REAL; }
 {NUMERO_MALFORMADO}  {
                         informar_erro_lexico("numero seguido de identificador sem separacao", yytext);
                         return ERRO_LEXICO;
                      }
-{INTEIRO}            { return NUM_INT; }
-{ID_FUNCAO}          { return ID_FUNCAO; }
-{ID_GLOBAL}          { return ID_GLOBAL; }
-{ID_LOCAL}           { return ID_LOCAL; }
+{INTEIRO}            { yylval.texto = copiar_lexema(yytext); return NUM_INT; }
+{ID_FUNCAO}          { yylval.texto = copiar_lexema(yytext); return ID_FUNCAO; }
+{ID_GLOBAL}          { yylval.texto = copiar_lexema(yytext); return ID_GLOBAL; }
+{ID_LOCAL}           { yylval.texto = copiar_lexema(yytext); return ID_LOCAL; }
 {ID_GENERICO}        {
                         informar_erro_lexico("identificador fora do padrao da linguagem", yytext);
                         return ERRO_LEXICO;
@@ -103,6 +103,8 @@ NUMERO_MALFORMADO   {DIGITO}+[A-Za-z_][A-Za-z0-9_]*
 ")"                 { return ')'; }
 "{"                 { return '{'; }
 "}"                 { return '}'; }
+
+<<EOF>>              { atualizar_localizacao(yytext, 0); return 0; }
 
 .                    {
                         informar_erro_lexico("caractere nao reconhecido", yytext);
