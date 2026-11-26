@@ -28,14 +28,7 @@ const char *copiar_lexema(const char *texto);
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
-typedef struct Quadrupla {
-    const char *op;
-    const char *arg1;
-    const char *arg2;
-    const char *result;
-    int operacao_real;
-    struct Quadrupla *prox;
-} Quadrupla;
+#include "codigo_alvo.h"
 
 int yylex(void);
 void yyerror(const char *mensagem);
@@ -611,7 +604,10 @@ static const char *caminho_saida(const char *fonte, const char *extensao)
 static int salvar_codigo(const char *fonte)
 {
     const char *ir = caminho_saida(fonte, ".ir");
+    const char *asm_alvo = caminho_saida(fonte, ".asm");
     FILE *intermediario = fopen(ir, "w");
+    FILE *assembly;
+    int sucesso;
 
     if (intermediario == NULL) {
         perror(ir);
@@ -622,7 +618,25 @@ static int salvar_codigo(const char *fonte)
         perror(ir);
         return 0;
     }
-    printf("\nCodigo intermediario salvo em %s\n", ir);
+    if (!validar_codigo_alvo(codigo)) {
+        fprintf(stderr, "Codigo intermediario salvo em %s.\n", ir);
+        return 0;
+    }
+    assembly = fopen(asm_alvo, "w");
+    if (assembly == NULL) {
+        perror(asm_alvo);
+        return 0;
+    }
+    sucesso = gerar_assembly(assembly, codigo);
+    if (fclose(assembly) != 0) {
+        perror(asm_alvo);
+        sucesso = 0;
+    }
+    if (!sucesso) {
+        remove(asm_alvo);
+        return 0;
+    }
+    printf("\nArquivos gerados %s e %s\n", ir, asm_alvo);
     return 1;
 }
 }
