@@ -57,16 +57,6 @@ Abra o Assembly correspondente no Moodle e confira `RESULTADO`. Cada caso tem o 
 
 A linguagem reconhece `int`, `bool`, `float` e o retorno `void`. O Assembly usa inteiros de 32 bits com sinal e representa booleanos como 0 ou 1. Programas com `float` geram quádruplas e recebem um diagnóstico na geração de código-alvo.
 
-## Validação local
+## Validação
 
-Com Python instalado, execute:
-
-```powershell
-python validar.py .\build\compilador.exe    # Windows
-```
-
-```bash
-python3 validar.py ./build/compilador        # Linux
-```
-
-O script compila os casos de teste e verifica o Assembly em um modelo local do simulador. O [relatório técnico](RELATORIO.md) detalha a linguagem, a estratégia de uso dos registradores, a convenção de chamada e os resultados esperados.
+Use os arquivos `.asm` dos exemplos para conferir `RESULTADO` no simulador. Para observar diagnósticos do compilador, passe `teste_erros.txt` como entrada no lugar do exemplo. O [relatório técnico](RELATORIO.md) detalha a linguagem, a estratégia de uso dos registradores, a convenção de chamada e os casos de teste.

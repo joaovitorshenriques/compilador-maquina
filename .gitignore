@@ -1,5 +1,6 @@
 /build/
 /TP_Compiladores_Parte_II.zip
 /compilador-maquina-aho.bundle
+/validar.py
 __pycache__/
 *.pyc

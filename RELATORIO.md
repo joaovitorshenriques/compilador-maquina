@@ -9,7 +9,6 @@ No Windows, com WinFlex, WinBison e GCC disponíveis no PATH, execute os comando
 ```powershell
 .\compilar.ps1
 .\build\compilador.exe .\exemplos\fatorial_recursivo.txt
-python validar.py .\build\compilador.exe
 ```
 
 Com Flex, Bison e um compilador C no Linux, os comandos equivalentes são os seguintes.
@@ -20,7 +19,6 @@ bison -Wall -d -o build/parser.tab.c parser.y
 flex -o build/lex.yy.c lexer.l
 cc -std=c11 -Wall -Wextra -I. build/parser.tab.c build/lex.yy.c codigo_alvo.c -o build/compilador
 ./build/compilador exemplos/fatorial_recursivo.txt
-python3 validar.py build/compilador
 ```
 
 A execução local foi feita no Windows com WinFlex, WinBison e Clang. A tabela de símbolos e as duas representações do intermediário são exibidas no terminal. Para fontes `.txt`, a extensão é substituída pelos sufixos de saída. Para outras extensões, os sufixos são acrescentados ao nome completo.
@@ -99,7 +97,7 @@ Os resultados intermediários são gravados na memória imediatamente. R1 a R4 p
 
 ## Programas e resultados
 
-Cada linha aponta para o fonte entregue e para as saídas geradas pelo compilador. O verificador local `validar.py` executa o Assembly em um modelo do conjunto de instruções documentado pelo simulador. A execução dos arquivos no Moodle está pendente.
+Cada linha aponta para o fonte entregue e para as saídas geradas pelo compilador. Os resultados locais foram obtidos em um modelo do conjunto de instruções documentado pelo simulador. A execução dos arquivos no Moodle está pendente.
 
 | Problema | Fonte | Quádruplas | Assembly |
 | --- | --- | --- | --- |
@@ -129,7 +127,7 @@ Cada linha aponta para o fonte entregue e para as saídas geradas pelo compilado
 | Fatorial recursivo | 4 | 24 | 24 |
 | Fatorial recursivo | 5 | 120 | 120 |
 
-Os resultados são conferidos em `RESULTADO`. O verificador usa os fontes entregues para cada fatorial e adapta as atribuições iniciais dos outros dois programas. Ele compila cada caso em uma pasta temporária e confere se a pilha está vazia no fim da execução. Também cobre curto-circuito, chamadas aninhadas, divisão inteira, comparações nos extremos de 32 bits e os diagnósticos de erro. Os arquivos de cada fatorial estão na [tabela de exemplos](README.md#fatoriais-de-0-a-5).
+Os resultados são conferidos em `RESULTADO`. Os arquivos de cada fatorial estão na [tabela de exemplos](README.md#fatoriais-de-0-a-5). Para variar a entrada dos outros dois programas, edite as atribuições iniciais do fonte e recompile. Ao executar qualquer fatorial recursivo, confira também se a pilha termina vazia, com `SP = 0`.
 
 ## Diagnósticos
 
