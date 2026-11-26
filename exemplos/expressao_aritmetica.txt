@@ -1,0 +1,14 @@
+int RESULTADO;
+
+int principal() {
+    int a;
+    int b;
+    int c;
+    int d;
+    a = 2;
+    b = 3;
+    c = 4;
+    d = 5;
+    RESULTADO = (a + b) * c - d;
+    return 0;
+}

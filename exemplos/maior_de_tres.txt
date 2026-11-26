@@ -1,0 +1,20 @@
+int RESULTADO;
+
+int principal() {
+    int a;
+    int b;
+    int c;
+    a = 7;
+    b = 12;
+    c = 5;
+    if (a >= b && a >= c) {
+        RESULTADO = a;
+    } else {
+        if (b >= c) {
+            RESULTADO = b;
+        } else {
+            RESULTADO = c;
+        }
+    }
+    return 0;
+}

@@ -1,0 +1,23 @@
+
+Codigo intermediario (quadruplas)
+op        arg1             arg2         result
+global    int              -            RESULTADO
+func      int              -            principal
+local     int              -            a$1
+local     int              -            b$2
+local     int              -            c$3
+local     int              -            d$4
+=         2                -            a$1
+=         3                -            b$2
+=         4                -            c$3
+=         5                -            d$4
+=         a$1              -            $t1
+=         b$2              -            $t2
++         $t1              $t2          $t3
+=         c$3              -            $t4
+*         $t3              $t4          $t5
+=         d$4              -            $t6
+-         $t5              $t6          $t7
+=         $t7              -            RESULTADO
+return    0                -            -
+endfunc   -                -            principal
