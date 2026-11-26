@@ -1,0 +1,43 @@
+int SOMA;
+float MEDIA;
+
+int principal() {
+    int x;
+    bool continuar;
+    x = 10;
+    SOMA = calcularSoma(x, 20);
+    MEDIA = calcularMedia(SOMA, 2.0);
+    continuar = x < SOMA && !(MEDIA == 0.0);
+
+    if (SOMA > 20) {
+        int x;
+        x = 1;
+    } else {
+        x = x - 1;
+    }
+
+    while (continuar) {
+        x = x + 1;
+        continuar = x < SOMA;
+    }
+
+    if (true || registrarTeste()) registrarFim();
+    return 0;
+}
+
+int calcularSoma(int a, int b) {
+    return a + b;
+}
+
+float calcularMedia(float total, float divisor) {
+    return total / divisor;
+}
+
+bool registrarTeste() {
+    SOMA = 0;
+    return false;
+}
+
+void registrarFim() {
+    return;
+}

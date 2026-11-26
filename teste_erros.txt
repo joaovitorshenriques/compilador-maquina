@@ -1,0 +1,24 @@
+int somarValores(int a, int b) {
+    return a + b;
+}
+
+void registrarFim() {
+    return 1;
+}
+
+int principal() {
+    int x;
+    int x;
+    float media;
+    x = y + 1;
+    x = true + 1;
+    x = 2.5;
+    x = somarValores(1);
+    x = somarValores(true, 2);
+    x = calcularAusente();
+    x = registrarFim();
+    if (x) x = 0;
+    { int temporaria; }
+    x = temporaria;
+    return false;
+}
