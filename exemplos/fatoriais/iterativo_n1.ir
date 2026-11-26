@@ -1,0 +1,26 @@
+
+Codigo intermediario (quadruplas)
+op        arg1             arg2         result
+global    int              -            RESULTADO
+func      int              -            principal
+local     int              -            n$1
+local     int              -            i$2
+=         1                -            n$1
+=         2                -            i$2
+=         1                -            RESULTADO
+label     -                -            L1
+=         i$2              -            $t1
+=         n$1              -            $t2
+<=        $t1              $t2          $t3
+ifFalse   $t3              -            L2
+=         RESULTADO        -            $t4
+=         i$2              -            $t5
+*         $t4              $t5          $t6
+=         $t6              -            RESULTADO
+=         i$2              -            $t7
++         $t7              1            $t8
+=         $t8              -            i$2
+goto      -                -            L1
+label     -                -            L2
+return    0                -            -
+endfunc   -                -            principal

@@ -1,0 +1,14 @@
+int RESULTADO;
+
+int principal() {
+    int n;
+    int i;
+    n = 2;
+    i = 2;
+    RESULTADO = 1;
+    while (i <= n) {
+        RESULTADO = RESULTADO * i;
+        i = i + 1;
+    }
+    return 0;
+}

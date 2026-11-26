@@ -42,6 +42,19 @@ O compilador grava os arquivos `.ir` e `.asm` ao lado do código-fonte. Abra `ex
 | [Fatorial iterativo](exemplos/fatorial_iterativo.txt) | 120 |
 | [Fatorial recursivo, problema extra](exemplos/fatorial_recursivo.txt) | 120 |
 
+### Fatoriais de 0 a 5
+
+Abra o Assembly correspondente no Moodle e confira `RESULTADO`. Cada caso tem o fonte `.txt` e as quádruplas `.ir` ao lado do `.asm`.
+
+| Entrada `n` | `RESULTADO` | Assembly iterativo | Assembly recursivo |
+| ---: | ---: | --- | --- |
+| 0 | 1 | [Iterativo](exemplos/fatoriais/iterativo_n0.asm) | [Recursivo](exemplos/fatoriais/recursivo_n0.asm) |
+| 1 | 1 | [Iterativo](exemplos/fatoriais/iterativo_n1.asm) | [Recursivo](exemplos/fatoriais/recursivo_n1.asm) |
+| 2 | 2 | [Iterativo](exemplos/fatoriais/iterativo_n2.asm) | [Recursivo](exemplos/fatoriais/recursivo_n2.asm) |
+| 3 | 6 | [Iterativo](exemplos/fatoriais/iterativo_n3.asm) | [Recursivo](exemplos/fatoriais/recursivo_n3.asm) |
+| 4 | 24 | [Iterativo](exemplos/fatoriais/iterativo_n4.asm) | [Recursivo](exemplos/fatoriais/recursivo_n4.asm) |
+| 5 | 120 | [Iterativo](exemplos/fatorial_iterativo.asm) | [Recursivo](exemplos/fatorial_recursivo.asm) |
+
 A linguagem reconhece `int`, `bool`, `float` e o retorno `void`. O Assembly usa inteiros de 32 bits com sinal e representa booleanos como 0 ou 1. Programas com `float` geram quádruplas e recebem um diagnóstico na geração de código-alvo.
 
 ## Validação local

@@ -116,15 +116,20 @@ Cada linha aponta para o fonte entregue e para as saídas geradas pelo compilado
 | Maior de três | 7, 12, 5 | 12 | 12 |
 | Maior de três | 9, 9, 3 | 9 | 9 |
 | Maior de três | −4, −4, −4 | −4 | −4 |
-| Fatorial iterativo | 5 | 120 | 120 |
 | Fatorial iterativo | 0 | 1 | 1 |
 | Fatorial iterativo | 1 | 1 | 1 |
+| Fatorial iterativo | 2 | 2 | 2 |
+| Fatorial iterativo | 3 | 6 | 6 |
+| Fatorial iterativo | 4 | 24 | 24 |
+| Fatorial iterativo | 5 | 120 | 120 |
 | Fatorial recursivo | 0 | 1 | 1 |
 | Fatorial recursivo | 1 | 1 | 1 |
+| Fatorial recursivo | 2 | 2 | 2 |
+| Fatorial recursivo | 3 | 6 | 6 |
 | Fatorial recursivo | 4 | 24 | 24 |
 | Fatorial recursivo | 5 | 120 | 120 |
 
-Os resultados são conferidos em `RESULTADO`. O verificador substitui as atribuições iniciais para cada caso, compila cada fonte temporário e também confere se a pilha está vazia no fim da execução. Ele ainda cobre curto-circuito, chamadas aninhadas, divisão inteira, comparações nos extremos de 32 bits e os diagnósticos de erro.
+Os resultados são conferidos em `RESULTADO`. O verificador usa os fontes entregues para cada fatorial e adapta as atribuições iniciais dos outros dois programas. Ele compila cada caso em uma pasta temporária e confere se a pilha está vazia no fim da execução. Também cobre curto-circuito, chamadas aninhadas, divisão inteira, comparações nos extremos de 32 bits e os diagnósticos de erro. Os arquivos de cada fatorial estão na [tabela de exemplos](README.md#fatoriais-de-0-a-5).
 
 ## Diagnósticos
 
